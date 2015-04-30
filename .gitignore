@@ -27,3 +27,4 @@ build/Release
 node_modules
 bower_components
 presentations/Spirit_Of_Christmas_2014
+public/js/dist
