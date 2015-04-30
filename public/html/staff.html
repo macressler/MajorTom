@@ -1,0 +1,57 @@
+<!-- Copyright (c) 2014 Neil Munro <neilmunro@gmail.com>. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DashBoard: Staff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='Stylesheet' type='text/css' href='../css/dist/main/staff.min.css'>
+    <link rel='Stylesheet' type='text/css' href='bootstrap/dist/css/bootstrap.min.css'>
+  </head>
+
+  <body onload='init();'>
+    <nav role="navigation" class="navbar navbar-inverse">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+      <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand">DashBoard: Staff</a>
+      </div>
+    </nav>
+
+    <main>
+      <div id="widgets-outer" class="container-fluid">
+        <div id="widgets-inner" class="row">
+          <div id="col1" class="col-md-4">
+            <table class="table">
+              <caption id="setListCaption"></caption>
+              <thead></thead>
+              <tbody id="setList"></tbody>
+            </table>
+          </div>
+
+          <div id="col2" class="col-md-4">
+            <iframe id="view" src="index.html"></iframe>
+          </div>
+
+          <div id="col3" class="col-md-4">
+            <textarea id="messages" disabled></textarea>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <script src='jquery/dist/jquery.min.js'></script>
+    <script src='bootstrap/dist/js/bootstrap.min.js'></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='../js/dist/main/DashBoard.min.js'></script>
+    <script src='../js/dist/main/staff.min.js'></script>
+    <script>
+      var dash = new Dash();
+    </script>
+  </body>
+</html>

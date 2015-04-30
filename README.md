@@ -1,2 +1,15 @@
-# MajorTom
-A Node.js powered dashboard for live events or just distributed presentations in general.
+# MajorTom: Dashboard #
+
+* MajorTom presentation software
+
+### How do I get set up? ###
+
+* Install nodejs
+* Clone repo
+* cd DashBoard
+* npm install
+* npm start
+
+### Who do I talk to? ###
+
+* Neil Munro (niadh) <neilmunro@gmail.com>

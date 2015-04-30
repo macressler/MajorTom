@@ -1,0 +1,21 @@
+{
+  "name": "DashBoard",
+  "main": "app.js",
+  "version": "0.0.0",
+  "authors": [
+    "Neil Munro <neilmunro@gmail.com>"
+  ],
+  "description": "A web platform for running interactive presentations.",
+  "licence": "GPL-3.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.0"
+  }
+}
