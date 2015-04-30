@@ -1,0 +1,42 @@
+<!-- Copyright (c) 2014 Spirit Of Christmas. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DashBoard: Example Presentation</title>
+    <link rel="StyleSheet" type="text/css" href="/css/dist/extra/snow-animation.min.css">
+    <link rel="StyleSheet" type="text/css" href="/css/dist/main/text-animation.min.css">
+    <link rel='Stylesheet' type='text/css' href='/css/main.css'>
+    <script src="/css/three.min.js"></script>
+    <script src="/css/helvetiker_regular.typeface.js"></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='/js/dist/main/DashBoard.min.js'></script>
+    <script src='/js/dist/extra/Snow.min.js'></script>
+    <script src='/js/code.js'></script>
+    <script src='/js/gl.js'></script>
+    <script>
+      var snow = new Snow();
+      var dash = new Dash();
+    </script>
+  </head>
+  <body onload='init();'>
+    <div id='main_content'>
+      <div class='outerContainer'>
+        <div class='innerContainer'>
+          <span id='snow1' class='snow smallSnowflake'></span>
+          <span id='snow2' class='snow bigSnowflake'></span>
+          <span id='snow3' class='snow smallSnowflake'></span>
+          <span id='snow4' class='snow smallSnowflake'></span>
+          <span id='snow5' class='snow bigSnowflake'></span>
+          <span id='snow6' class='snow smallSnowflake'></span>
+          <span id='snow7' class='snow bigSnowflake'></span>
+          <span id='snow8' class='snow smallSnowflake'></span>
+          <span id='snow9' class='snow smallSnowflake'></span>
+          <span id='snow10' class='snow smallSnowflake'></span>
+          <div id='content'>
+            <h1 id='current' class='active'>Example Presentation</h1>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </body>
+</html>

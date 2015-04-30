@@ -1,43 +1,71 @@
 /**
  * Copyright (c) 2014 Neil Munro <neilmunro@gmail.com>.
  */
-function init() {
-  "use strict";
 
-  var sectionList = document.getElementById("sectionList"); 
-  var socket = io.connect(dash.server);
+"use strict";
 
-  socket.on(dash.api.section.recv.all, function(data) {
-    while(sectionList.hasChildNodes()) {
-      sectionList.removeChild(sectionList.lastChild);
-    }
+(function() {
+  var dash = new Dash();
 
-    data.sections.forEach(function(section, index, array) {
-      var option = document.createElement('option');
-      option.setAttribute('value', index);
-      option.innerHTML = section.title;
-      sectionList.appendChild(option);
+  window.onload = function() {
+    dash.load(function() {
+      var sectionList = document.getElementById("sectionList"); 
+      var socket = io.connect(dash.server);
+
+      socket.on(dash.api.section.recv.all, function(data) {
+        while(sectionList.hasChildNodes()) {
+          sectionList.removeChild(sectionList.lastChild);
+        }
+
+        data.sections.forEach(function(section, index, array) {
+          var option = document.createElement('option');
+          option.setAttribute('value', index);
+          option.innerHTML = section.title;
+          sectionList.appendChild(option);
+        });
+
+        sectionList.selectedIndex = data.counter;
+      });
+
+      socket.on(dash.api.section.recv.current, function(data) {
+        sectionList.selectedIndex = data.counter;
+      });
     });
 
-    sectionList.selectedIndex = data.counter;
-  });
+    // Setup event listeners.
+    var sendBtn = document.getElementById('send');
+    var nextLink = document.getElementById('nextLink');
+    var previousLink = document.getElementById('previousLink');
+    var resetLink = document.getElementById('resetLink');
+    var sectionList = document.getElementById('sectionList');
 
-  socket.on(dash.api.section.recv.current, function(data) {
-    sectionList.selectedIndex = data.counter;
-  });
-}
+    sendBtn.addEventListener('click', function() {
+      var msg = document.getElementById('msg');
+      var msgs = document.getElementById('messages');
+      var contents = (msgs.value !== "") ? msgs.value + "\n\n" : "";
 
-function sendMSG() {
-  "use strict";
+      contents += "Admin: " + msg.value;
 
-  var msg = document.getElementById('msg');
-  var msgs = document.getElementById('messages');
-  var contents = (msgs.value !== "") ? msgs.value + "\n\n" : "";
+      msgs.value = contents;
+      msg.value = "";
 
-  contents += "Admin: " + msg.value;
+      dash.messages.send(contents);
+    });
 
-  msgs.value = contents;
-  msg.value = "";
+    nextLink.addEventListener('click', function() {
+      dash.actions.next();      
+    });
 
-  dash.messages.send(contents);
-}
+    previousLink.addEventListener('click', function() {
+      dash.actions.previous();
+    });
+
+    resetLink.addEventListener('click', function() {
+      dash.actions.reset();
+    });
+
+    sectionList.addEventListener('change', function() {
+     dash.actions.get(this.value);
+    });
+  }
+}());

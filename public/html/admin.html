@@ -8,7 +8,7 @@
     <link rel='Stylesheet' type='text/css' href='bootstrap/dist/css/bootstrap.min.css'>
   </head>
 
-  <body onload='ready();'>
+  <body>
     <nav role="navigation" class="navbar navbar-inverse">
       <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -27,27 +27,27 @@
 
         <ul class="nav navbar-nav">
           <li>
-            <a href="#" onClick="dash.actions.previous();">
+            <a id="previousLink" href="#">
               <span class="glyphicon glyphicon-chevron-left"></span>
               &nbsp;Back
             </a>
           </li>
 
           <li>
-            <a href="#" onClick="dash.actions.next();">
+            <a id="nextLink" href="#">
               <span class="glyphicon glyphicon-chevron-right"></span>
               &nbsp;Forward
             </a>
           </li>
 
           <li>
-            <a href="#" onClick="dash.actions.reset();">
+            <a id="resetLink" href="#">
               <span class="glyphicon glyphicon-refresh"></span>
               &nbsp;Restart
             </a>
           </li>
           <li>
-            <select class="span2 navbar-btn" id="sectionList" onChange="dash.actions.get(this.value);"></select>
+            <select class="span2 navbar-btn" id="sectionList"></select>
           </li>
         </ul>
 
@@ -65,26 +65,18 @@
           <div id="col2" class="col-md-4">
             <textarea id="messages" disabled></textarea>
             <input id="msg" type="text"></input>
-            <input id="send" type="button" value="Send" onclick="sendMSG();"></input>
+            <input id="send" type="button" value="Send"></input>
           </div>
 
         </div>
       </div>
     </main>
+
     <script src='jquery/dist/jquery.min.js'></script>
     <script src='bootstrap/dist/js/bootstrap.min.js'></script>
     <script src='/socket.io/socket.io.js'></script>
     <script src='../js/dist/main/DashBoard.min.js'></script>
     <script src='../js/dist/main/admin.min.js'></script>
 
-    <script>
-      var dash = new Dash();
-
-      function ready() {
-        "use strict";
-
-        dash.load(init);
-      }
-    </script>
   </body>
 </html>

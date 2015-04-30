@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Text Example",
+    "type": "text",
+    "content": "Text<br/>Example"
+  },
+  {
+    "title": "Video Demo",
+    "type": "video",
+    "autoplay": true,
+    "controls": true,
+    "content": [
+      "videos/PX.mp4",
+      "videos/PX.ogg"
+    ]
+  },
+  {
+    "title": "OpenGL Example",
+    "type": "animation",
+    "content": "None"
+  }
+]
