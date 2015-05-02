@@ -6,7 +6,7 @@
   "licence": "GPL-3.0",
   "scripts": {
     "preinstall": "bower install",
-    "start": "grunt && node app.js Spirit_Of_Christmas_2014"
+    "start": "grunt && node app.js example"
   },
   "devDependencies": {
     "bower": "1.3.12",

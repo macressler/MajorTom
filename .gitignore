@@ -26,5 +26,5 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 bower_components
-presentations/Spirit_Of_Christmas_2014
 public/js/dist
+public/css/dist
