@@ -14,7 +14,7 @@ So in index.html add the following.
 
 Now, inside js/code.js add the following.
 
->    window.onload = function init() {
+>      window.onload = function init() {
 >      "use strict";
 >  
 >      var snow = new Snow();
@@ -107,6 +107,6 @@ Now, inside js/code.js add the following.
 >
 >      current.setAttribute("class", "inactive");
 >      });
->    };
+>      };
 
 Your web page now handles most basic types, other than audio which is left intentionally blank for now.
