@@ -8,7 +8,7 @@ Major tom is a networked presentation server for adding visual flair to live eve
             
 * Install nodejs
 * Clone repo
-* cd DashBoard
+* cd majortom 
 * sudo npm -g install bower
 * sudo npm -g install grunt-cli
 * npm install
