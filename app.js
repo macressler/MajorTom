@@ -12,7 +12,7 @@ var API = require('./api');
 
 var name = process.argv[2];
 var presentation = path.join(__dirname, "presentations", name);
-var sections = path.join(presentation, "sections.json");
+var sections = path.join(presentation, "presentation.json");
 var sectionList = JSON.parse(fs.readFileSync(sections, "utf8"));
 var sectionCounter = 0;
 var msg = "No messages.";
