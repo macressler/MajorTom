@@ -1,10 +1,16 @@
-/* Copyright 2014 Spirit Of Christmas. */
+/*
+ * Copyright (c) 2014-2015 Neil Munro <neilmunro@gmail.com>.
+ */
 
-function init() {
+window.onload = function init() {
   "use strict";
   
+  var snow = new Snow();
+  var dash = new Dash();
+
   var socket = io.connect(dash.server);
-  socket.on(dash.api.signal.response.current, function(data) {
+
+  socket.on(dash.api.section.recv.current, function(data) {
     var current = document.getElementById("current");
     var animationEvents = ["animationend", "webkitAnimationEnd"];
 
@@ -89,4 +95,4 @@ function init() {
 
     current.setAttribute("class", "inactive");
   });
-}
+};
