@@ -16,7 +16,7 @@ Major tom is a networked presentation server for adding visual flair to live eve
 
 ### Running a presentation ###
 
-Once you have run npm start you can use the following pages in combination to run your presentation. ###
+Once you have run npm start you can use the following pages in combination to run your presentation.
 
 * localhost:1337 (for viewing)
 * localhost:1337/admin (for controlling the presentation)
