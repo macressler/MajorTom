@@ -1,6 +1,8 @@
 /*
- * Copyright (c) 2014 Neil Munro <neilmunro@gmail.com>.
+ * Copyright (c) 2014-2015 Neil Munro <neilmunro@gmail.com>.
  */
+
+"use strict";
 
 var fs = require('fs');
 var path = require('path');
@@ -24,7 +26,6 @@ app.use(express.static('public'));
 app.use(express.static('bower_components'));
 
 app.get('/admin', function(request, response) {
-  "use strict";
   var admin = path.join(__dirname, "public", "html", "admin.html");
   response.sendfile(admin);
 });
@@ -36,39 +37,31 @@ app.get('/staff', function(request, response) {
 });
 
 app.get('/test/:id', function(request, response) {
-  "use strict";
   var testName = path.join(__dirname, 'public', 'test', request.params.id + '.html');
   response.sendfile(testName);
 });
 
 function counterNext() {
-  "use strict";
   sectionCounter = (sectionCounter >= sectionList.length -1) ? 0 : sectionCounter +1;  
 }
 
 function counterPrev() {
-  "use strict";
   sectionCounter = (sectionCounter === 0) ? sectionList.length -1 : sectionCounter -1;  
 }
 
 function getSectionCounter() {
-  "use strict";
   return sectionCounter;
 }
 
 function getSection() {
-  "use strict";
   return sectionList[sectionCounter];
 }
 
 function counterReset() {
-  "use strict";
   sectionCounter = 0;
 }
 
 function counterSet(number) {
-  "use strict";
-
   if(number < 0 || number > sectionList.length -1) {
     number = 0;
   } 
@@ -77,13 +70,10 @@ function counterSet(number) {
 }
 
 function getAll() {
-  "use strict";
   return sectionList; 
 }
 
 io.sockets.on('connection', function(socket) {
-  "use strict";
-
   // Emit needed information upfront.
   socket.emit(API.section.recv.current, {
     "section": getSection(),
@@ -132,7 +122,7 @@ io.sockets.on('connection', function(socket) {
 
   socket.on(API.section.send.reset, function(data) {
     counterReset();
-    io.sockets.emit(API.section.recv.current, {
+    io.sockets.emit(API.section.recv.reset, {
       "section": getSection(),
       "counter": getSectionCounter() 
     });

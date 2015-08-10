@@ -1,16 +1,14 @@
 /*
- * Copyright 2014 Neil Munro <neilmunro@gmail.com>.
+ * Copyright (c) 2014-2015 Neil Munro <neilmunro@gmail.com>.
  */
 
-function Dash() {
-  "use strict";
+"use strict";
 
+function Dash() {
   return (this === window) ? new Dash() : this;
 }
 
 Dash.prototype.load = function(cb) {
-  "use strict";
-
   Dash.prototype.server = location.origin;
   Dash.prototype.timer = 0;
 
@@ -30,6 +28,7 @@ Dash.prototype.api = {
 
     "recv": {
       "current": "response current",
+      "reset": "response reset",
       "all": "response all"
     }
   },
@@ -56,8 +55,6 @@ Dash.prototype.api = {
 
 Dash.prototype.media = {
   "play": function(id) {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.media.send.play, {
       "state": "play",
@@ -66,8 +63,6 @@ Dash.prototype.media = {
   },
 
   "pause": function(id) {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.media.send.pause, {
       "state": "pause",
@@ -76,8 +71,6 @@ Dash.prototype.media = {
   },
 
   "stop": function(id) {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.media.send.stop, {
       "state": "stop",
@@ -88,29 +81,21 @@ Dash.prototype.media = {
 
 Dash.prototype.actions = {
   "next": function() {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.section.send.next, {});
   },
 
   "previous": function() {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.section.send.previous, {});
   },
 
   "reset": function() {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.section.send.reset, {});
   },
 
   "get": function(id) {
-    "use strict";
-    
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.section.send.get, {
       "id": id 
@@ -120,8 +105,6 @@ Dash.prototype.actions = {
 
 Dash.prototype.messages = {
   "send": function(msg) {
-    "use strict";
-
     var socket = io.connect(Dash.prototype.server);
     socket.emit(Dash.prototype.api.message.send, {
       "msg": msg
@@ -131,32 +114,22 @@ Dash.prototype.messages = {
 
 Dash.prototype.DOM = {
   "addText": function(cb) {
-    "use strict";
-
     if(cb !== undefined) cb();
   },
 
   "addAudio": function(cb) {
-    "use strict";
-
     if(cb !== undefined) cb();
   },
 
   "addVideo": function(cb) {
-    "use strict";
-
     if(cb !== undefined) cb();
   },
 
   "addAnimation": function(cb) {
-    "use strict";
-
     if(cb !== undefined) cb();
   },
 
   "clear": function(node) {
-    "use strict";
-
     while(node.hasChildNodes()) {
       node.removeChild(node.firstChild);
     }

@@ -21,8 +21,9 @@
     "qunitjs": "1.15.0"
   },
   "dependencies": {
-    "jshint": "*",
+    "bower": "^1.4.1",
     "express": "3.2.6",
+    "jshint": "*",
     "socket.io": "0.9.16"
   }
 }

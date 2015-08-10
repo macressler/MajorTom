@@ -5,12 +5,16 @@
 "use strict";
 
 (function() {
-  var dash = new Dash();
-
   window.onload = function() {
+    var dash = new Dash();
     dash.load(function() {
       var sectionList = document.getElementById("sectionList"); 
       var socket = io.connect(dash.server);
+
+      socket.on(dash.api.section.recv.reset, function(data) {
+        sectionList.selectedIndex = data.counter;
+        console.log("Testing!");
+      });
 
       socket.on(dash.api.section.recv.all, function(data) {
         while(sectionList.hasChildNodes()) {
@@ -52,19 +56,19 @@
       dash.messages.send(contents);
     });
 
-    nextLink.addEventListener('click', function() {
+    nextLink.addEventListener('click', function nextSection() {
       dash.actions.next();      
     });
 
-    previousLink.addEventListener('click', function() {
+    previousLink.addEventListener('click', function previousSection() {
       dash.actions.previous();
     });
 
-    resetLink.addEventListener('click', function() {
+    resetLink.addEventListener('click', function resetPresentation() {
       dash.actions.reset();
     });
 
-    sectionList.addEventListener('change', function() {
+    sectionList.addEventListener('change', function change() {
      dash.actions.get(this.value);
     });
   }

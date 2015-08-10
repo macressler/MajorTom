@@ -2,7 +2,8 @@
   {
     "title": "Text Example",
     "type": "text",
-    "content": "Text<br/>Example"
+    "content": "Text<br/>Example",
+    "duration": 60
   },
   {
     "title": "Video Demo",
@@ -12,11 +13,13 @@
     "content": [
       "videos/PX.mp4",
       "videos/PX.ogg"
-    ]
+    ],
+    "duration": 60
   },
   {
     "title": "OpenGL Example",
     "type": "animation",
-    "content": "None"
+    "content": "None",
+    "duration": 60
   }
 ]

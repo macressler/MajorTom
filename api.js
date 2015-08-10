@@ -11,6 +11,7 @@ module.exports = {
 
     "recv": {
       "current": "response current",
+      "reset": "response reset",
       "all": "response all"
     }
   },

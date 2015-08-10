@@ -2,20 +2,19 @@
  * Copyright (c) 2014-2015 Neil Munro <neilmunro@gmail.com>.
  */
 
-window.onload = function init() {
-  "use strict";
-  
-  var snow = new Snow();
-  var dash = new Dash();
+"use strict";
 
+(function() {
+  var dash = new Dash();
   var socket = io.connect(dash.server);
 
-  socket.on(dash.api.section.recv.current, function(data) {
+  function displayCurrent(data) {
     var current = document.getElementById("current");
     var animationEvents = ["animationend", "webkitAnimationEnd"];
 
     animationEvents.forEach(function(element, index, array) {
       current.addEventListener(element, function() {
+        var snow = new Snow();
         var content = document.getElementById("content");
 
         content.setAttribute("class", "inactive");
@@ -94,5 +93,10 @@ window.onload = function init() {
     });
 
     current.setAttribute("class", "inactive");
-  });
-};
+  }
+
+  window.onload = function init() {
+    socket.on(dash.api.section.recv.reset, displayCurrent);
+    socket.on(dash.api.section.recv.current, displayCurrent);
+  };
+}());
